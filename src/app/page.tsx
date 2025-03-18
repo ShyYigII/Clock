@@ -1,20 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import moment from "moment-timezone";
 import "@/app/page.css";
 
 export default function AnalogClock() {
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState(moment().tz("Asia/Ho_Chi_Minh"));
 
   useEffect(() => {
-    const interval = setInterval(() => setTime(new Date()), 1000);
+    const interval = setInterval(
+      () => setTime(moment().tz("Asia/Ho_Chi_Minh")),
+      1000
+    );
 
     return () => clearInterval(interval);
   }, []);
 
-  const hour = time.getHours();
-  const minute = time.getMinutes();
-  const second = time.getSeconds();
+  const hour = time.hour();
+  const minute = time.minute();
+  const second = time.second();
 
   const minuteDeg = (minute * 360) / 60;
   const hourDeg = ((hour % 12) * 360) / 12 + minuteDeg / 12;
