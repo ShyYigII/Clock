@@ -1,0 +1,8 @@
+.stick {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: bottom;
+  }
+
