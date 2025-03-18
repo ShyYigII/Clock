@@ -9,7 +9,6 @@ export default function AnalogClock() {
   useEffect(() => {
     const interval = setInterval(() => setTime(new Date()), 1000);
 
-    console.log(time);
     return () => clearInterval(interval);
   }, []);
 
